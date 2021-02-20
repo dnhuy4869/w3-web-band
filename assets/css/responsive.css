@@ -10,7 +10,7 @@
 
 /* mobile */
 @media (max-width: 739px) {
-    .col-3 {
+    .s-col-full {
         width: 100%;
     }
 
@@ -82,11 +82,8 @@
         margin-top: 8px;
     }
 
-    .map-section .img {
-        margin-bottom: 70px;
-    }
-
-   #footer {
-        margin-bottom: 150px;
+    .btn {
+        width: 100%;
+        text-align: center;
     }
 }
