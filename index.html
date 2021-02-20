@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>w3s | The Band</title>
+    <title>w3 | The Band</title>
     <link rel="icon" href="https://png.pngtree.com/element_origin_min_pic/16/07/20/21578f7c037d3fb.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 </head>
 
@@ -40,6 +41,10 @@
                 <i class="search-icon ti-search"></i>
             </div>
 
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="menu-icon ti-menu"></i>
+            </div>
+
         </div>
 
         <div id="slider">
@@ -65,17 +70,17 @@
 
                 <div class="row member-list">
 
-                    <div class="col col-3 text-center">
+                    <div class="member-item col col-3 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/imgs/band/member1.jpg" alt="Name" class="member-img">
                     </div>
 
-                    <div class="col col-3 text-center">
+                    <div class="member-item col col-3 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/imgs/band/member1.jpg" alt="Name" class="member-img">
                     </div>
 
-                    <div class="col col-3 text-center">
+                    <div class="member-item col col-3 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/imgs/band/member1.jpg" alt="Name" class="member-img">
                     </div>
@@ -101,7 +106,7 @@
                     <!-- places -->
                     <div class="row place-list">
 
-                        <div class="col col-3">
+                        <div class="member-item col col-3">
                             <img src="./assets/imgs/places/place1.jpg" alt="New York" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">New York</h3>
@@ -111,7 +116,7 @@
                             </div>
                         </div>
 
-                        <div class="col col-3">
+                        <div class="member-item col col-3">
                             <img src="./assets/imgs/places/place2.jpg" alt="Paris" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">Paris</h3>
@@ -121,7 +126,7 @@
                             </div>
                         </div>
 
-                        <div class="col col-3">
+                        <div class="member-item col col-3">
                             <img src="./assets/imgs/places/place3.jpg" alt="San Francisco" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">San Francisco</h3>
@@ -144,23 +149,23 @@
 
                 <div class="row contact-content">
 
-                    <div class="col col-2 contact-info">
+                    <div class="col col-2 col-3 contact-info">
                         <p><i class="ti-location-pin"></i>Chicago, US</p>
                         <p><i class="ti-mobile"></i>Phone: +00 151515</p>
                         <p><i class="ti-email"></i>Email: mail@mail.com</p>
                     </div>
 
-                    <div class="col col-2 contact-form">
+                    <div class="col col-2 col-3 contact-form">
 
                         <form action="">
 
                             <div class="row">
 
-                                <div class="col col-2">
+                                <div class="col col-2 col-3">
                                     <input type="text" name="" placeholder="Name" required id="" class="form-control">
                                 </div>
 
-                                <div class="col col-2">
+                                <div class="col col-2 col-3 s-email-input">
                                     <input type="email" name="" placeholder="Email" required id="" class="form-control">
                                 </div>
 
@@ -185,7 +190,7 @@
             </div>
 
             <div class="map-section">
-                <img src="./assets/imgs/map.jpg" alt="Map">
+                <img class="img" src="./assets/imgs/map.jpg" alt="Map">
             </div>
 
         </div>
@@ -206,6 +211,41 @@
         </div>
 
     </div>
+
+<script>
+    var header = document.getElementById('header');
+    var mobile_menu = document.getElementById('mobile-menu');
+    mobile_menu.onclick = function()
+     {
+        var is_close = header.clientHeight === 46;
+        if (is_close)
+        {
+            header.style.height = "368px";
+        }
+        else 
+        {
+            header.style.height = "46px";
+        }
+    }
+
+    var menu_item = document.querySelectorAll('#nav li a[href*="#"]');
+    for (var i = 0; i < menu_item.length; i++)
+    {
+        var item = menu_item[i];
+        item.onclick = function(event)
+        {
+            var is_parent_menu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+            if (!is_parent_menu)
+            {
+                header.style.height = "46px";
+            }
+            else{
+                event.preventDefault();
+            }
+        }
+    }
+</script>
+
 </body>
 
 </html>

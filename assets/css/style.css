@@ -155,6 +155,7 @@ html {
     background-color: #ccc;
 }
 
+#header .mobile-menu-btn,
 #header .search-btn {
     float: right;
     height: 46px;
@@ -165,11 +166,27 @@ html {
     background-color: #f44336;
 }
 
+#header .mobile-menu-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+#header .mobile-menu-btn:hover {
+    background-color: #ccc;
+}
+
+#header .menu-icon,
 #header .search-icon {
     color: white;
     font-size: 20px;
     line-height: 46px;
     padding: 0 21px;
+}
+
+#header .menu-icon:hover {
+    color: black;
 }
 
 /* slider */
@@ -208,9 +225,12 @@ html {
 
 #content .content-section {
     width: 800px;
+    max-width: 100%;
     padding: 64px 0 112px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 #content .section-heading {
